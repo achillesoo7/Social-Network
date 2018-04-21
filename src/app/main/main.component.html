@@ -1,0 +1,52 @@
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-3">
+      <app-leftbar></app-leftbar>
+    </div>
+
+
+    <div class="col-lg-6 col-offset-6">
+
+      <div class="text-center mt-3"><img src="./assets/img/mind.png" alt="mind"></div>
+      <div *ngIf="logInForm" class="mt-5">
+        <p class="lead text-info">Log In to visit again that awesome world...</p>
+        <form (submit)="onLogSubmit()" action="/about" method="post">
+          <input type="email" name="email" class="form-control mt-2" [(ngModel)]="logUser.email" placeholder="Your Email Address" required>
+          <p class="lead text-danger">{{emailAlert}}</p>
+          <input type="password" name="password" class="form-control mt-2" [(ngModel)]="logUser.password" placeholder="Your password" required>
+          <p class="lead text-danger">{{passwordAlert}}</p>
+          <input type="submit" class="btn btn-info btn-lg form-control mt-2" value="Log In">
+        </form>
+        <a href="#" class="lead">Forgot Password ?</a>
+      </div>
+
+      <div *ngIf="signUpForm" class="mt-5">
+        <p class="lead text-info">Sign up for an amazing world...</p>
+        <form (submit)="onSignSubmit()" action="/about" method="post">
+            <input type="text" name="firstName" class="form-control mt-2" [(ngModel)]="registerUser.firstName" placeholder="First Name" required>
+            <p class="lead text-danger">{{firstNameAlert}}</p>
+            <input type="text" name="lastName" class="form-control mt-2" [(ngModel)]="registerUser.lastName" placeholder="Last Name" required>
+            <p class="lead text-danger">{{lastNameAlert}}</p>
+            <input type="email" name="email" class="form-control mt-2" [(ngModel)]="registerUser.email" placeholder="Email" required>
+            <p class="lead text-danger">{{signEmailAlert}}</p>
+            <input type="password" name="password" class="form-control mt-2" [(ngModel)]="registerUser.password" placeholder="Password" required>
+            <p class="lead text-danger">{{signPasswordAlert}}</p>
+            <input type="password" name="rePassword" class="form-control mt-2" [(ngModel)]="registerUser.rePassword" placeholder="Type your Password again" required>
+            <p class="lead text-danger">{{rePasswordAlert}}</p>
+            <input type="submit" name="submit" value="Sign Up" class="btn btn-info btn-lg form-control">
+        </form>
+      </div>
+
+       <a href="#" (click)="changeForm()"><p class="lead">{{changeFormMsg}}</p></a>
+    </div>
+
+    <div class="col-lg-3">
+      <app-rightbar></app-rightbar>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,96 @@
+  <!-- NOTE: Head Component -->
+<app-header></app-header>
+
+<!-- NOTE: Router tag for commuunicate between component -->
+<router-outlet></router-outlet>
+
+<div class="container">
+  <div class="row">
+   <div class="col-md-3">
+
+     <!-- NOTE: Profile discription bar component -->
+      <app-profile-bar class="sticky"></app-profile-bar>
+   </div>
+
+   <!-- NOTE: Main center area of dashboard -->
+
+   <div class="col-md-6">
+
+    <div class="row">
+     <p class="link lead ml-3 mt-2" (click)="question()" style="cursor:pointer">Ask Something </p>
+     <p class="mt-2 ml-2 lead">/</p>
+     <p class="link lead ml-1 mt-2" (click)="post()" style="cursor:pointer">Share Something</p>
+    </div>
+
+     <!-- NOTE: Post form -->
+     <div class="shadow" *ngIf="postClicked">
+     <textarea  [(ngModel)]="postText" name="postText" class="mt-2 form-control textarea" rows="5" style="resize:none" placeholder="Post something to share your knowledge and serve the community..."></textarea>
+      <button type="button" name="button" class="m-2 btn btn-danger btn-md mt-2" (click)="postSubmit()">Post</button>
+      <span class="mt-2 ml-2"><a href="#"><i class="fas fa-paperclip"></i> Add Photo</a></span>
+      </div>
+     <!-- NOTE: Question posting form -->
+     <div class="shadow" *ngIf="questionClicked">
+     <textarea  [(ngModel)]="questionText" name="questionText" class="mt-2 form-control textarea" rows="5" style="resize:none" placeholder="Ask something to gain your knowledge and be the part of this community..."></textarea>
+     <button type="button" name="button" class="m-2 btn btn-info btn-md mt-2" (click)="questionSubmit()">Post</button>
+     <span class="mt-2 ml-2"><a href="#"><i class="fas fa-paperclip"></i> Add Attachment</a></span>
+      </div>
+ <!-- NOTE: Showing the suggested people -->
+      <div id="carouselExampleControls" class="carousel slide mt-5" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+
+        <div class="card text-center">
+          <div style="text-align:center">
+          <img src="./assets/img/dp.png" alt="name" width="50px" height="50px">
+          </div>
+          <p class="lead">Sumit Jha</p>
+          <p>Enterprenuer || Programmer || JavaScript Lover</p>
+          <button type="button" name="button" class="btn btn-danger btn-sm">Follow</button>
+        </div>
+
+      </div>
+      <div class="carousel-item">
+
+        <div class="card text-center">
+          <div style="text-align:center">
+          <img src="./assets/img/dp.png" alt="name" width="50px" height="50px">
+          </div>
+          <p class="lead">Sumit Jha</p>
+          <p>Enterprenuer || Programmer || JavaScript Lover</p>
+          <button type="button" name="button" class="btn btn-danger btn-sm">Follow</button>
+        </div>
+
+      </div>
+      <div class="carousel-item">
+
+        <div class="card text-center">
+          <div style="text-align:center">
+          <img src="./assets/img/dp.png" alt="name" width="50px" height="50px">
+          </div>
+          <p class="lead">Sumit Jha</p>
+          <p>Enterprenuer || Programmer || JavaScript Lover</p>
+          <button type="button" name="button" class="btn btn-danger btn-sm">Follow</button>
+        </div>
+
+      </div>
+    </div>
+    <a class="carousel-control-prev btn-danger" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next btn-danger" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+<!-- NOTE: Posts component -->
+     <app-posts></app-posts>
+   </div>
+
+   <!-- NOTE: Hot Topics bar -->
+   <div class="col-md-3">
+     <app-msg-bar class="sticky"></app-msg-bar>
+   </div>
+   </div>
+</div>
